@@ -48,7 +48,7 @@
 	const ring = new RingBuffer(random_capacity)
 
 	// Fill must fill the random capacity
-	for ( x = 0; x < random_capacity; x ++){
+	for ( var x = 0; x < random_capacity; x ++){
 		ring.write(x)
 	}
 
@@ -70,12 +70,12 @@
 	const start = new Date().getTime()
 
 	// Fill must fill the random capacity
-	for ( x = 0; x < random_capacity; x ++){
+	for ( var x = 0; x < random_capacity; x ++){
 		ring.write(x)
 	}
 
 	// Read the random capacity, in order
-	for ( y = 0; y < random_capacity; y ++){
+	for ( var y = 0; y < random_capacity; y ++){
 		expect(ring.read()).toBe(y)
 	}
 

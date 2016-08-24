@@ -38,7 +38,7 @@ class RingBuffer{
 			// loop through and write the input to subscribers
 			for(var subscriber_index = 0; subscriber_index < this.subscribers.length; subscriber_index++){
 
-				let subscriber = this.subscribers[subscriber_index];
+				var subscriber = this.subscribers[subscriber_index];
 
 				subscriber.write(input)
 			}
@@ -97,7 +97,7 @@ class RingReader extends RingBuffer {
 		ring_buffer.subscribers.push(this)
 
 		// set the defaults to where we extended the buffer
-		let {buffer, size, position, isOverwriting} = ring_buffer
+		var {buffer, size, position, isOverwriting} = ring_buffer
 
 		this.buffer = buffer
 		this.size = size
