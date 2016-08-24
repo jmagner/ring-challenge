@@ -179,7 +179,8 @@ const RingView__component = ({
 	
 	onAddRingReader,
 	ringReaders,
-	onReadRing
+	onReadRing,
+	readerReadResponseStream
 })=>{
 	
 	let trs = [],
@@ -217,13 +218,22 @@ const RingView__component = ({
 			// set up ring readers
 			
 			ringReaders[buffer_index].map((reader,index)=>{
+
+				let reader_response_markup = '';
+				readerReadResponseStream[buffer_index][index].map((response)=>{
+					reader_response_markup += response == '' ? '[empty] ' : response  + ' '
+				})
+
 				ring_reader_markup.push(
-				<p key={'reader-'+index}>
-					<button onClick={(e)=>{
-		        			e.preventDefault();
-							onReadRing(buffer_index, index)
-						}}>Ring Read {index + 1}</button> :
-				</p>)
+				
+					<p key={'reader-'+index}>
+						<button onClick={(e)=>{
+			        			e.preventDefault();
+								onReadRing(buffer_index, index)
+							}}>Ring Read {index + 1}</button> : {reader_response_markup}
+					</p>
+				)
+
 			})
 		}
 		
@@ -438,7 +448,7 @@ const reducers = combineReducers({
 				// add the new reader
 				add_RingReaderReadResponse[action.buffer_index] = [
 					...state[action.buffer_index],
-					{...action.reader_response}
+					[]
 				]
 
 				let add_stateObject = Object.assign({}, state, add_RingReaderReadResponse)
@@ -449,10 +459,9 @@ const reducers = combineReducers({
 
 				let update_RingReaderReadResonse = {};
 
-				// add the new reader
 				update_RingReaderReadResonse[action.buffer_index] = [
 					...state[action.buffer_index].slice(0, action.reader_index),
-					[...state[action.buffer_index], action.read_response],
+					[...state[action.buffer_index][action.reader_index],action.read_response],
 					...state[action.buffer_index].slice(action.reader_index + 1)
 				]
 
