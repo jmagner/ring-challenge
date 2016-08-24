@@ -7,6 +7,8 @@ class RingBuffer{
 		this.position = 0;
 		this.isOverwriting = false;
 
+		this.subscribers = [];
+
 	}
 	write(input){
 
@@ -30,6 +32,19 @@ class RingBuffer{
 			this.isOverwriting = false;
 		}
 
+		// if we have subscribers, they need to be updated as well
+		if(this.subscribers){
+
+			// loop through and write the input to subscribers
+			for(var subscriber_index = 0; subscriber_index < this.subscribers.length; subscriber_index++){
+
+				let subscriber = this.subscribers[subscriber_index];
+
+				subscriber.write(input)
+			}
+		}
+
+		
 	}
 	read(){
 
@@ -72,6 +87,22 @@ class RingBuffer{
 
 class RingReader extends RingBuffer {
 	constructor(ring_buffer){
+
+		super(ring_buffer.buffer.length)
+
+		// you can't subscribe to a reader
+		delete this.subscribers
+
+		// subscribe to the buffer
+		ring_buffer.subscribers.push(this)
+
+		// set the defaults to where we extended the buffer
+		let {buffer, size, position, isOverwriting} = ring_buffer
+
+		this.buffer = buffer
+		this.size = size
+		this.position = position
+		this.isOverwriting = isOverwriting
 
 	}
 }

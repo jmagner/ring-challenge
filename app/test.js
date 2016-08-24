@@ -84,3 +84,78 @@
 	console.log('Test passed, ' + random_capacity + ' executions in ' + (end - start) + 'ms' )
 
 }());
+
+(function(){
+
+
+	// Third case from Chris P.
+
+	const ring = new RingBuffer(2)
+	
+	ring.write(1)
+
+	const readerA = new RingReader(ring)
+	const readerB = new RingReader(ring)
+
+	expect(readerA.read()).toBe(1)
+	expect(readerB.read()).toBe(1)
+
+	ring.write(2)
+
+	expect(readerA.read()).toBe(2)
+	expect(readerB.read()).toBe(2)
+
+	console.log('Test passed.')
+
+}());
+
+(function(){
+
+
+	// Fourth case from Chris P.
+
+	const ring = new RingBuffer(2);
+	
+	ring.write(1)
+	ring.write(2)
+
+	const readerA = new RingReader(ring)
+
+	expect(readerA.read()).toBe(1)
+	expect(readerA.read()).toBe(2)
+
+	const readerB = new RingReader(ring)
+
+	expect(readerB.read()).toBe(1)
+	expect(readerB.read()).toBe(2)
+
+	console.log('Test passed.')
+
+}());
+
+(function(){
+
+	// Fifth case from Chris P.
+
+	const ring = new RingBuffer(2);
+	
+	ring.write(1)
+	ring.write(2)
+
+	const readerA = new RingReader(ring)
+
+	expect(readerA.read()).toBe(1)
+	expect(readerA.read()).toBe(2)
+
+	ring.write(3)
+
+	const readerB = new RingReader(ring)
+
+	expect(readerB.read()).toBe(2)
+	expect(readerB.read()).toBe(3)
+
+	expect(readerA.read()).toBe(3)
+
+	console.log('Test passed.')
+
+}());
