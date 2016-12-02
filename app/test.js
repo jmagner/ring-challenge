@@ -157,77 +157,77 @@
 
 }());
 
-// (function(){
+(function(){
 
 
-// 	// Third case from Chris P.
+	// Third case from Chris P.
 
-// 	const ring = new RingBuffer(2)
+	const ring = new RingBuffer(2)
 	
-// 	ring.write(1)
+	ring.write(1)
 
-// 	const readerA = new RingReader(ring)
-// 	const readerB = new RingReader(ring)
+	const readerA = new RingReader(ring)
+	const readerB = new RingReader(ring)
 
-// 	expect(readerA.read()).toBe(1)
-// 	expect(readerB.read()).toBe(1)
+	expect(readerA.read()).toBe(1)
+	expect(readerB.read()).toBe(1)
 
-// 	ring.write(2)
+	ring.write(2)
 
-// 	expect(readerA.read()).toBe(2)
-// 	expect(readerB.read()).toBe(2)
+	expect(readerA.read()).toBe(2)
+	expect(readerB.read()).toBe(2)
 
-// 	console.log('Test passed.')
+	console.log('Test passed.')
 
-// }());
+}());
 
-// (function(){
+(function(){
 
 
-// 	// Fourth case from Chris P.
+	// Fourth case from Chris P.
 
-// 	const ring = new RingBuffer(2);
+	const ring = new RingBuffer(2);
 	
-// 	ring.write(1)
-// 	ring.write(2)
+	ring.write(1)
+	ring.write(2)
 
-// 	const readerA = new RingReader(ring)
+	const readerA = new RingReader(ring)
 
-// 	expect(readerA.read()).toBe(1)
-// 	expect(readerA.read()).toBe(2)
+	expect(readerA.read()).toBe(1)
+	expect(readerA.read()).toBe(2)
 
-// 	const readerB = new RingReader(ring)
+	const readerB = new RingReader(ring)
 
-// 	expect(readerB.read()).toBe(1)
-// 	expect(readerB.read()).toBe(2)
+	expect(readerB.read()).toBe(1)
+	expect(readerB.read()).toBe(2)
 
-// 	console.log('Test passed.')
+	console.log('Test passed.')
 
-// }());
+}());
 
-// (function(){
+(function(){
 
-// 	// Fifth case from Chris P.
+	// Fifth case from Chris P.
 
-// 	const ring = new RingBuffer(2);
+	const ring = new RingBuffer(2);
 	
-// 	ring.write(1)
-// 	ring.write(2)
+	ring.write(1)
+	ring.write(2)
 
-// 	const readerA = new RingReader(ring)
+	const readerA = new RingReader(ring)
 
-// 	expect(readerA.read()).toBe(1)
-// 	expect(readerA.read()).toBe(2)
+	expect(readerA.read()).toBe(1)
+	expect(readerA.read()).toBe(2)
 
-// 	ring.write(3)
+	ring.write(3)
 
-// 	const readerB = new RingReader(ring)
+	const readerB = new RingReader(ring)
 
-// 	expect(readerB.read()).toBe(2)
-// 	expect(readerB.read()).toBe(3)
+	expect(readerB.read()).toBe(2)
+	expect(readerB.read()).toBe(3)
 
-// 	expect(readerA.read()).toBe(3)
+	expect(readerA.read()).toBe(3)
 
-// 	console.log('Test passed.')
+	console.log('Test passed.')
 
-// }());
+}());
