@@ -193,7 +193,11 @@ const RingView__component = ({
 		// we're going to show the buffer based on what's actually on it
 		for( var x = 0; x < ring_buffer.buffer.length; x ++ ){
 
-			let style = ring_buffer.position === x ? {backgroundColor: '#E0EEEE'} : null;
+			let style = {};
+
+			if(ring_buffer.position === x){
+				style.backgroundColor = '#E0EEEE';
+			}
 			
 			td.push(
 				<td key={'buffer-' + buffer_index + "-" + x} style={style}>
@@ -265,7 +269,9 @@ const RingView__component = ({
 							e.preventDefault();
 							onCountBuffer(buffer_index)
 						}}>Count</button> : {ring_buffer.size}</p>
-						<p>Overwriting: {ring_buffer.isOverwriting ? 'True' : 'False'}</p>
+						<p>Position: {ring_buffer.position}</p>
+
+						<p>Overwriting: {ring_buffer.full ? 'True' : 'False'}</p>
 						<p><button onClick={(e)=>{
 		        			e.preventDefault();
 							onReadBuffer(buffer_index)
