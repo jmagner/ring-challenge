@@ -270,8 +270,6 @@ const RingView__component = ({
 							onCountBuffer(buffer_index)
 						}}>Count</button> : {ring_buffer.size}</p>
 						<p>Position: {ring_buffer.position}</p>
-
-						<p>Overwriting: {ring_buffer.full ? 'True' : 'False'}</p>
 						<p><button onClick={(e)=>{
 		        			e.preventDefault();
 							onReadBuffer(buffer_index)

@@ -1,7 +1,5 @@
 (function(){
 
-	// First case from Chris P.
-
 	console.log('Test 1')
 
 	const ring = new RingBuffer(4);
@@ -21,8 +19,6 @@
 (function(){
 
 	console.log('Test 2')
-
-	// Second case from Chris P.
 
 	const ring = new RingBuffer(4);
 
@@ -64,38 +60,9 @@
 
 }());
 
-// (function(){
-
-// 	// Load test, read in order, with a random capacity between 9mm-10mm
-// 	const	min = 9000000,
-// 			max = 10000000,
-// 			random_capacity = Math.floor(Math.random() * (max - min + 1)) + min;
-
-// 	const ring = new RingBuffer(random_capacity)
-
-// 	const start = new Date().getTime()
-
-// 	// Fill must fill the random capacity
-// 	for ( var x = 0; x < random_capacity; x ++){
-// 		ring.write(x)
-// 	}
-
-// 	// Read the random capacity, in order
-// 	for ( var y = 0; y < random_capacity; y ++){
-// 		expect(ring.read()).toBe(y)
-// 	}
-
-// 	const end = new Date().getTime();
-	
-// 	console.log('Test passed, ' + random_capacity + ' executions in ' + (end - start) + 'ms' )
-
-// }());
-
 (function(){
 
 	console.log('Test 4')
-
-	// First case from Chris P.
 
 	const ring = new RingBuffer(2);
 	
@@ -159,8 +126,7 @@
 
 (function(){
 
-
-	// Third case from Chris P.
+	console.log('Test 6')
 
 	const ring = new RingBuffer(2)
 	
@@ -183,8 +149,8 @@
 
 (function(){
 
+	console.log('Test 7')
 
-	// Fourth case from Chris P.
 
 	const ring = new RingBuffer(2);
 	
@@ -207,7 +173,7 @@
 
 (function(){
 
-	// Fifth case from Chris P.
+	console.log('Test 8')
 
 	const ring = new RingBuffer(2);
 	
@@ -231,3 +197,33 @@
 	console.log('Test passed.')
 
 }());
+
+(function(){
+
+	console.log('Load test 9.')
+
+	// Load test, read in order, with a random capacity between 9mm-10mm
+	const	min = 9000000,
+			max = 10000000,
+			random_capacity = Math.floor(Math.random() * (max - min + 1)) + min;
+
+	const ring = new RingBuffer(random_capacity)
+
+	const start = new Date().getTime()
+
+	// Fill must fill the random capacity
+	for ( var x = 0; x < random_capacity; x ++){
+		ring.write(x)
+	}
+
+	// Read the random capacity, in order
+	for ( var y = 0; y < random_capacity; y ++){
+		expect(ring.read()).toBe(y)
+	}
+
+	const end = new Date().getTime();
+	
+	console.log('Test passed, ' + random_capacity + ' executions in ' + (end - start) + 'ms' )
+
+}());
+
