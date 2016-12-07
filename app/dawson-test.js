@@ -202,8 +202,8 @@
   console.log('Load test 9.')
 
   // Load test, read in order, with a random capacity between 9mm-10mm
-  const min = 9000000,
-      max = 10000000,
+  const min = 90000,
+      max = 100000,
       random_capacity = Math.floor(Math.random() * (max - min + 1)) + min;
 
   const ring = new RingBuffer(random_capacity)

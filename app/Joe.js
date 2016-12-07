@@ -37,7 +37,7 @@ class RingBuffer{
       return null;
     }
 
-    // We determine the read position by first testing whether this.position - this.size is >= 0"
+    // We determine the read position by first testing whether this.position - this.size is >= 0
     // if this.position - this.size >= 0, then the buffer is not full.. consider:
     //
     // in a partially filled buffer, with no reads, this.position and this.size will always be equal,
@@ -46,7 +46,7 @@ class RingBuffer{
     //
     // if the buffer is full and writes occur, this.position will have reset to 0 before the subsequent writes, and this.size will be at buffer max capacity, so
     // the difference of this.position - this.size will be a negative result.  In this case, we subtract the difference from buffer capacity
-    // to get the read correct position
+    // to get the correct read position
     
     return this.buffer[
       this.position - this.size >= 0 ?

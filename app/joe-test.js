@@ -203,8 +203,9 @@
 	console.log('Load test 9.')
 
 	// Load test, read in order, with a random capacity between 9mm-10mm
-	const	min = 9000000,
-			max = 10000000,
+	// 100663000 roughly the max chrome will do on mac at ~8500ms, times out above
+	const	min = 100663000,
+			max =   100663000,
 			random_capacity = Math.floor(Math.random() * (max - min + 1)) + min;
 
 	const ring = new RingBuffer(random_capacity)

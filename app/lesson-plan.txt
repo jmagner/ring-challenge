@@ -1,0 +1,23 @@
+Session 1: Core Class
+  Review RingBuffer class submissions
+  Everyone should have their own version of the core class
+
+Session 2: Unit Testing
+  We will discuss unit tests for the Ring class and everyone will implement a suite of tests
+
+Session 3: NodeJS Primer, Server Side API
+  We will discuss the basics of Node on the server
+  We will create an Express server and create a simple REST API for the Ring class
+
+Session 4: Serverside React UI Rendering / Routing
+  Add routing to our server and render a React root
+  Introduce React Hello World 
+
+Session 6: Redux Introduction
+  Introduce problems that we will solve with Redux
+  Explain concept of Store
+  Create actions to consume web service
+
+Session 7: Advanced applications
+  Introduce Normalizr
+  Introduce Reselect
